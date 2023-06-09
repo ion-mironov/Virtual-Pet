@@ -32,7 +32,7 @@ In order to receive a PASSING grade, all of the following principles must be met
   - Ability for players to enter the game, play as long as they’d like, and leave the game when they want.
   - Ability for players to create a pet by putting in a name and species for said pet.
   - Ability for players to see the current status of a pet, such as hunger, boredom, and health (hint: class properties).
-  - Ability for players to interact with pet, such as feed, play, and take to doctor (hint: class methods).
+  - Ability for players to interact with pet, such as feed, play, and take to vet (hint: class methods).
   - As players interact with the pet, the pet’s status changes.
   - As "time" ticks by, the pet's status changes negatively.
 
