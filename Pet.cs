@@ -56,18 +56,18 @@ namespace template_csharp_virtual_pet
         }
         
         
-        //public int GetPetHealth()
-        //{
-        //    return PetHealth;
-        //}
-        //public int GetPetHunger()
-        //{
-        //    return PetHunger;
-        //}
-        //public int GetPetBoredom()
-        //{
-        //    return PetBoredom;
-        //}
+        public int GetPetHealth()
+        {
+            return PetHealth;
+        }
+        public int GetPetHunger()
+        {
+            return PetHunger;
+        }
+        public int GetPetBoredom()
+        {
+            return PetBoredom;
+        }
 
     }
 }
