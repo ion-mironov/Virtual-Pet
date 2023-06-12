@@ -5,28 +5,28 @@
         // FIELDS //
         private string petName = string.Empty;
         private string petSpecies = string.Empty;
+        private int petHealth = 60;
         private int petHunger = 60;
         private int petBoredom = 60;
-        private int petHealth = 60;
 
         // PROPERTIES //
         public string PetName { get; set; }
         public string PetSpecies { get; set; }
+        public int PetHealth { get; set; }
         public int PetHunger { get; set; }
         public int PetBoredom { get; set; }
-        public int PetHealth { get; set; }
 
         // CONSTRUCTOR //
-        public Pet(string petName, string petSpecies, int petHunger, int petBoredom, int petHealth)
+        public Pet(string petName, string petSpecies, int petHealth, int petBoredom, int petHunger)
         {
             PetName = petName;
             PetSpecies = petSpecies;
-            PetHunger = petHunger;
+            PetHunger = petHealth;
             PetBoredom = petBoredom;
-            PetHealth = petHealth;
+            PetHealth = petHunger;
         }
 
-        // ------------------------------------------ METHODS -------------------------------------
+        // ------------------------------------------ METHODS ------------------------------------- //
 
         public void Feed()
         {
@@ -38,30 +38,31 @@
         }
         public void Play()
         {
+            PetHealth += 10;
             PetHunger += 10;
             PetBoredom -= 20;
-            PetHealth += 10;
         }
         public void Tick()
         {
+            PetHealth -= 5;
             PetHunger += 5;
             PetBoredom += 5;
-            PetHealth -= 5;
         }
-        
-        
+
+
         public int GetPetHealth()
         {
             return PetHealth;
         }
+
         public int GetPetHunger()
         {
             return PetHunger;
         }
+
         public int GetPetBoredom()
         {
             return PetBoredom;
         }
-
     }
 }
