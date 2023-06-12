@@ -14,7 +14,7 @@
         public string PetSpecies { get; set; }
         public int PetHunger { get; set; }
         public int PetBoredom { get; set; }
-        public int petHealth { get; set; }
+        public int PetHealth { get; set; }
 
         // CONSTRUCTOR //
         public Pet(string petName, string petSpecies, int petHunger, int petBoredom, int petHealth)
