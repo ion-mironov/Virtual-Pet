@@ -3,8 +3,8 @@
     public class Pet
     {
         // FIELDS //
-        private string petName;
-        private string petSpecies;
+        private string petName = string.Empty;
+        private string petSpecies = string.Empty;
         private int petHunger = 60;
         private int petBoredom = 60;
         private int petHealth = 60;
