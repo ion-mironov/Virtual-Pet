@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace template_csharp_virtual_pet
+﻿namespace template_csharp_virtual_pet
 {
     public class Pet
     {
@@ -21,7 +15,7 @@ namespace template_csharp_virtual_pet
         public int PetHunger { get; set; }
         public int PetBoredom { get; set; }
         public int PetHealth { get; set; }
-        
+
         // CONSTRUCTOR //
         public Pet(string petName, string petSpecies, int petHunger, int petBoredom, int petHealth)
         {
