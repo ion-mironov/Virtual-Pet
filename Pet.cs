@@ -39,9 +39,41 @@
         {
             Console.WriteLine("\nWhat is the name of your pet?");
             string nameInput = Console.ReadLine();
-            return nameInput; 
+            return nameInput;
         }
-        
+
+        public void InteractMenu()
+        {
+            Console.WriteLine("What would you like to do with your Pet?");
+            Console.WriteLine("1. Play");
+            Console.WriteLine("2. Feed");
+            Console.WriteLine("3. Go to vet\n");
+            Console.WriteLine("0. Go back to Main Menu\n");
+            Console.Write("Enter a selection number: ");
+            string userChoice = Console.ReadLine();
+            do
+            {
+                switch (userChoice)
+                {
+                    case "1":
+                        Play();
+                        break;
+                    case "2":
+                        Feed();
+                        break;
+                    case "3":
+                        SeeDoctor();
+                        break;
+                    case "0":
+                        break;
+                    default:
+                        Console.WriteLine("Your selection is invalid");
+                        break;
+                }
+            }
+            while (userChoice != "0");
+        }
+
         public string SpeciesMenu()
         {
             int speciesSelection;
@@ -77,21 +109,19 @@
                     animal = "Rabbit";
                     break;
                 default:
-                    animal =  string.Empty;
+                    animal = string.Empty;
                     break;
             }
             return animal;
         }
         public void Feed()
         {
-
             PetHunger -= 10;
             DisplayPet();
             Console.WriteLine("You give your pet their favorite food!  NOM NOM NOM!");
         }
         public void SeeDoctor()
         {
-
             PetHealth += 30;
             DisplayPet();
             Console.WriteLine("\nYou make a check-up appointment for your pet!  They are being well taken care of!");
@@ -114,12 +144,12 @@
         {
             Console.Clear();
             Console.WriteLine("===================================================================================");
-            Console.WriteLine($"{PetName}                                                                        ");
-            Console.WriteLine($"{PetSpecies}                                                                     ");
-            Console.WriteLine("                                                                                    ");
-            Console.WriteLine($"\tHealth: {PetHealth}\t\t Boredom: {PetBoredom} \t\t Hunger: {PetHunger}        ");
-            Console.WriteLine("                                                                                    ");
-            Console.WriteLine("===================================================================================");
+            Console.WriteLine($"{PetName}                                                                         ");
+            Console.WriteLine($"{PetSpecies}                                                                      ");
+            Console.WriteLine("                                                                                   ");
+            Console.WriteLine($"\tHealth: {PetHealth}\t\t Boredom: {PetBoredom} \t\t Hunger: {PetHunger}          ");
+            Console.WriteLine("                                                                                   ");
+            Console.WriteLine("===================================================================================\n");
         }
 
         public int GetPetHealth()
@@ -155,5 +185,4 @@
         //}
 
     }
-
 }

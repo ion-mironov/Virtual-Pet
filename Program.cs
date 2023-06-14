@@ -33,6 +33,7 @@ namespace template_csharp_virtual_pet
                     case "1":
                         userPet.CreateNewPet();
                         userPet.DisplayPet();
+                        userPet.InteractMenu();
                         break;
 
                     case "2":
