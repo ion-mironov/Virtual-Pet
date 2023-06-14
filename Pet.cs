@@ -32,17 +32,25 @@ namespace template_csharp_virtual_pet
 
         public void Feed()
         {
+            
             PetHunger -= 10;
+            DisplayPet();
+            Console.WriteLine("You give your pet their favorite food!  NOM NOM NOM!");
         }
         public void SeeDoctor()
         {
+            
             PetHealth += 30;
+            DisplayPet();
+            Console.WriteLine("\nYou make a check-up appointment for your pet!  They are being well taken care of!");
         }
         public void Play()
-        {
+        {         
             PetHealth += 10;
             PetHunger += 10;
             PetBoredom -= 20;
+            DisplayPet();
+            Console.WriteLine("\nYou play with your pet!  They love the attention!");
         }
         public void Tick()
         {
