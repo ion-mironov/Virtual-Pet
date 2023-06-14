@@ -25,16 +25,19 @@ namespace template_csharp_virtual_pet
                 string mainMenuSelection = Console.ReadLine().ToLower();
 
                 Pet userPet = new Pet(string.Empty, string.Empty, 60, 60, 60);
-
+                Shelter myShelter = new Shelter();
                 switch (mainMenuSelection)
                 {
                     case "1":
                         userPet.CreateNewPet();
+                        myShelter.Admit(userPet);
                         userPet.DisplayPet();
                         userPet.InteractMenu();
                         break;
 
                     case "2":
+                        myShelter.DisplayAllPets();
+                        console.ReadLine();
                         break;
 
                     case "q":
