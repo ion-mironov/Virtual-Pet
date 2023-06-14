@@ -12,9 +12,9 @@
         // PROPERTIES //
         public string PetName { get; set; }
         public string PetSpecies { get; set; }
-        public int PetHealth { get; set; }
-        public int PetHunger { get; set; }
-        public int PetBoredom { get; set; }
+        public int PetHealth { get; private set; }
+        public int PetHunger { get; private set; }
+        public int PetBoredom { get; private set; }
 
         // CONSTRUCTOR //
         public Pet(string petName, string petSpecies, int petHealth, int petBoredom, int petHunger)
@@ -30,19 +30,22 @@
 
         public Pet CreateNewPet()
         {
-
+            PetName = NameMenu();
+            PetSpecies = SpeciesMenu();
+            Pet pet = new Pet(PetName, PetSpecies, 60, 60, 60);
+            return pet;
         }
         public string NameMenu()
         {
-            Console.WriteLine("What is the name of your pet?");
+            Console.WriteLine("\nWhat is the name of your pet?");
             string nameInput = Console.ReadLine();
-            return 
-
+            return nameInput; 
         }
         
         public string SpeciesMenu()
         {
             int speciesSelection;
+            string animal;
             do
             {
                 Console.Clear();
@@ -59,18 +62,25 @@
             switch (speciesSelection)
             {
                 case 1:
-                    return "Wolf";
+                    animal = "Wolf";
+                    break;
                 case 2:
-                    return "Fox";
+                    animal = "Fox";
+                    break;
                 case 3:
-                    return "Red Panda";
+                    animal = "Red Panda";
+                    break;
                 case 4:
-                    return "Dragon";
+                    animal = "Dragon";
+                    break;
                 case 5:
-                    return "Rabbit";
+                    animal = "Rabbit";
+                    break;
                 default:
-                    return string.Empty;
+                    animal =  string.Empty;
+                    break;
             }
+            return animal;
         }
         public void Feed()
         {
@@ -103,18 +113,13 @@
         public void DisplayPet()
         {
             Console.Clear();
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("===================================================================================");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"\t{PetName}");
-            Console.Write("                                                                 ");
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write($"\n\t{PetSpecies}                                                       ");
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine($"\t\t\t Health: {PetHealth}\t\t Boredom: {PetBoredom} \t\t Hunger: {PetHunger} ");
+            Console.WriteLine($"{PetName}                                                                        ");
+            Console.WriteLine($"{PetSpecies}                                                                     ");
             Console.WriteLine("                                                                                    ");
-            Console.WriteLine("====================================================================================");
+            Console.WriteLine($"\tHealth: {PetHealth}\t\t Boredom: {PetBoredom} \t\t Hunger: {PetHunger}        ");
+            Console.WriteLine("                                                                                    ");
+            Console.WriteLine("===================================================================================");
         }
 
         public int GetPetHealth()

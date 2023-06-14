@@ -23,7 +23,7 @@ namespace template_csharp_virtual_pet
 
         public void DisplayAllPets()
         {
-            Console.WriteLine(" Currently in your Shelter we have the following Pets:\n");
+            Console.WriteLine("Currently in your Shelter we have the following Pets:\n");
             foreach (Pet pet in Pets)
             {
                 Console.WriteLine($"Name: {pet.PetName}\t Species: {pet.PetSpecies}\t Health: {pet.PetHealth}\t" +

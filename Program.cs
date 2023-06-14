@@ -11,6 +11,7 @@ namespace template_csharp_virtual_pet
             while (running)
             {
                 // Your Program Code Here
+
                 Console.Clear();
                 Console.WriteLine("Welcome to Virtual Pet!\n");
 
@@ -24,16 +25,14 @@ namespace template_csharp_virtual_pet
                 Console.WriteLine("Press 'Q' to quit.");
                 Console.Write("Enter your selection here: ");
                 string mainMenuSelection = Console.ReadLine().ToLower();
-                Pet userPet = new Pet(petName, petSpecies, 60, 60, 60);
+                Pet userPet = new Pet(string.Empty, string.Empty, 60, 60, 60);
 
                 if (mainMenuSelection == "1")
                 {
-                    string petName = Pet.SpeciesMenu();
-                    // next method
-                    Console.WriteLine("What is the name of your pet?");
-                    string petName = Console.ReadLine();
-                    
+                    userPet.CreateNewPet();
                 }
+
+                userPet.DisplayPet();
 
                 /*
                 switch (mainMenuSelection)            ///Removed for testing purposes
@@ -56,19 +55,19 @@ namespace template_csharp_virtual_pet
                 // ---------------------------------- NEW PET CREATION ---------------------------------- //
 
                 // Have user select what species their new pet is.
-                
 
-                
-                
-               
 
+
+
+
+                /*
                 // Ask user if the pet is organic or robotic.
                 Console.WriteLine("What variation of species is your pet?");
                 Console.WriteLine("1. Organic");
                 Console.WriteLine("2. Robotic\n");
                 Console.Write("Enter a line number: ");
                 int variationSelection = Convert.ToInt32(Console.ReadLine());
-
+                */
                 // ---------------------------------- NEW PET CREATION ---------------------------------- //
 
 
@@ -84,8 +83,8 @@ namespace template_csharp_virtual_pet
 
                 // ---------------------------------- SHELTER ---------------------------------- //
 
+
             }
-        }
         
         }
     }
