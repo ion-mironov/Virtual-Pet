@@ -27,17 +27,12 @@ namespace template_csharp_virtual_pet
                 string mainMenuSelection = Console.ReadLine().ToLower();
                 Pet userPet = new Pet(string.Empty, string.Empty, 60, 60, 60);
 
-                if (mainMenuSelection == "1")
-                {
-                    userPet.CreateNewPet();
-                }
 
-                userPet.DisplayPet();
-
-                /*
                 switch (mainMenuSelection)            ///Removed for testing purposes
                 {
                     case "1":
+                        userPet.CreateNewPet();
+                        userPet.DisplayPet();
                         break;
 
                     case "2":
@@ -50,39 +45,39 @@ namespace template_csharp_virtual_pet
 
                     default:
                         break;
-                */
 
-                // ---------------------------------- NEW PET CREATION ---------------------------------- //
+                }
+                        // ---------------------------------- NEW PET CREATION ---------------------------------- //
 
-                // Have user select what species their new pet is.
-
-
+                        // Have user select what species their new pet is.
 
 
 
-                /*
-                // Ask user if the pet is organic or robotic.
-                Console.WriteLine("What variation of species is your pet?");
-                Console.WriteLine("1. Organic");
-                Console.WriteLine("2. Robotic\n");
-                Console.Write("Enter a line number: ");
-                int variationSelection = Convert.ToInt32(Console.ReadLine());
-                */
-                // ---------------------------------- NEW PET CREATION ---------------------------------- //
+
+
+                        /*
+                        // Ask user if the pet is organic or robotic.
+                        Console.WriteLine("What variation of species is your pet?");
+                        Console.WriteLine("1. Organic");
+                        Console.WriteLine("2. Robotic\n");
+                        Console.Write("Enter a line number: ");
+                        int variationSelection = Convert.ToInt32(Console.ReadLine());
+                        */
+                        // ---------------------------------- NEW PET CREATION ---------------------------------- //
 
 
 
-                // ---------------------------------- SHELTER ---------------------------------- //
+                        // ---------------------------------- SHELTER ---------------------------------- //
 
-                // Shelter will allow user to see what Pets are currently housed and able to be interacted with and even adopt.
-                // If there are no Pets, tell user that there are none and provide them option to create one.
-
-
-                // 
+                        // Shelter will allow user to see what Pets are currently housed and able to be interacted with and even adopt.
+                        // If there are no Pets, tell user that there are none and provide them option to create one.
 
 
-                // ---------------------------------- SHELTER ---------------------------------- //
+                        // 
 
+
+                        // ---------------------------------- SHELTER ---------------------------------- //
+                
 
             }
         
