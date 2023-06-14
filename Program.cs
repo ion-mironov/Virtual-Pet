@@ -1,9 +1,12 @@
-﻿namespace template_csharp_virtual_pet
+﻿using System.Reflection.Metadata;
+
+namespace template_csharp_virtual_pet
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            
             bool running = true;
             while (running)
             {
@@ -21,8 +24,19 @@
                 Console.WriteLine("Press 'Q' to quit.");
                 Console.Write("Enter your selection here: ");
                 string mainMenuSelection = Console.ReadLine().ToLower();
+                Pet userPet = new Pet(petName, petSpecies, 60, 60, 60);
 
-                switch (mainMenuSelection)
+                if (mainMenuSelection == "1")
+                {
+                    string petName = Pet.SpeciesMenu();
+                    // next method
+                    Console.WriteLine("What is the name of your pet?");
+                    string petName = Console.ReadLine();
+                    
+                }
+
+                /*
+                switch (mainMenuSelection)            ///Removed for testing purposes
                 {
                     case "1":
                         break;
@@ -37,22 +51,16 @@
 
                     default:
                         break;
-                }
+                */
 
                 // ---------------------------------- NEW PET CREATION ---------------------------------- //
 
                 // Have user select what species their new pet is.
-                Console.WriteLine("What is the species of your new pet?");
-                Console.WriteLine("1. Wolf");
-                Console.WriteLine("2. Fox");
-                Console.WriteLine("3. Red Panda");
-                Console.WriteLine("4. Dragon");
-                Console.WriteLine("5. Rabbit\n");
-                Console.Write("Enter a line number: ");
-                int speciesSelection = Convert.ToInt32(Console.ReadLine());
+                
 
-                Console.WriteLine("What is the name of your pet?");
-                string petNameInput = Console.ReadLine();
+                
+                
+               
 
                 // Ask user if the pet is organic or robotic.
                 Console.WriteLine("What variation of species is your pet?");
@@ -77,6 +85,8 @@
                 // ---------------------------------- SHELTER ---------------------------------- //
 
             }
+        }
+        
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Timers;
-
-namespace template_csharp_virtual_pet
+﻿namespace template_csharp_virtual_pet
 {
     public class Pet
     {
@@ -30,22 +28,66 @@ namespace template_csharp_virtual_pet
 
         // ------------------------------------------ METHODS ------------------------------------- //
 
+        public Pet CreateNewPet()
+        {
+
+        }
+        public string NameMenu()
+        {
+            Console.WriteLine("What is the name of your pet?");
+            string nameInput = Console.ReadLine();
+            return 
+
+        }
+        
+        public string SpeciesMenu()
+        {
+            int speciesSelection;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("What is the species of your new pet?");
+                Console.WriteLine("1. Wolf");
+                Console.WriteLine("2. Fox");
+                Console.WriteLine("3. Red Panda");
+                Console.WriteLine("4. Dragon");
+                Console.WriteLine("5. Rabbit\n");
+                Console.Write("Enter a line number: ");
+                speciesSelection = Convert.ToInt32(Console.ReadLine());
+            }
+            while (speciesSelection < 1 || speciesSelection > 5);
+            switch (speciesSelection)
+            {
+                case 1:
+                    return "Wolf";
+                case 2:
+                    return "Fox";
+                case 3:
+                    return "Red Panda";
+                case 4:
+                    return "Dragon";
+                case 5:
+                    return "Rabbit";
+                default:
+                    return string.Empty;
+            }
+        }
         public void Feed()
         {
-            
+
             PetHunger -= 10;
             DisplayPet();
             Console.WriteLine("You give your pet their favorite food!  NOM NOM NOM!");
         }
         public void SeeDoctor()
         {
-            
+
             PetHealth += 30;
             DisplayPet();
             Console.WriteLine("\nYou make a check-up appointment for your pet!  They are being well taken care of!");
         }
         public void Play()
-        {         
+        {
             PetHealth += 10;
             PetHunger += 10;
             PetBoredom -= 20;
