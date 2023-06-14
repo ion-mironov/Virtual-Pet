@@ -11,16 +11,13 @@
                 Console.Clear();
                 Console.WriteLine("Welcome to Virtual Pet!\n");
 
-                // Main menu will consist of options to add a pet to the shelter, adopt a pet, and see what pets are currently in the shelter.
-
-                // Would possibly make more sense to have Add a Pet within the submenu of Create-A-Pet. Otherwise, how can you add a pet that doesn't exist?
+                // Main menu will consist of options to add a pet to the shelter and see what pets are currently in the shelter.
 
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("1. Create a new Pet.");
-                Console.WriteLine("2. Select a Pet to interact with.");     // This will produce a new submenu where the user can play, feed, take to doctor, etc.
-                Console.WriteLine("3. Add a Pet to the shelter.");
-                Console.WriteLine("4. Adopt a Pet from the shelter.");
-                Console.WriteLine("5. See what Pets are in the shelter\n"); // Display a list of all Pets currently in the shelter.
+                Console.WriteLine("2. Go to Shelter.");    // This will produce a new submenu where the user can play, feed, take to doctor, etc.
+                //                                              // If there are no Pets, have a fail-safe to state that there are none and ask if the user
+                //                                              // wants to create a new Pet.
                 Console.WriteLine("Press 'Q' to quit.");
                 Console.Write("Enter your selection here: ");
                 string mainMenuSelection = Console.ReadLine().ToLower();
@@ -31,9 +28,6 @@
                         break;
 
                     case "2":
-                        break;
-
-                    case "3":
                         break;
 
                     case "q":
@@ -70,6 +64,17 @@
                 // ---------------------------------- NEW PET CREATION ---------------------------------- //
 
 
+
+                // ---------------------------------- SHELTER ---------------------------------- //
+
+                // Shelter will allow user to see what Pets are currently housed and able to be interacted with and even adopt.
+                // If there are no Pets, tell user that there are none and provide them option to create one.
+
+
+                // 
+
+
+                // ---------------------------------- SHELTER ---------------------------------- //
 
             }
         }
