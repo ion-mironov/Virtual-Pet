@@ -20,8 +20,8 @@ namespace template_csharp_virtual_pet
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("1. Create a new Pet.");
                 Console.WriteLine("2. Go to Shelter.");    // This will produce a new submenu where the user can play, feed, take to doctor, etc.
-                //                                              // If there are no Pets, have a fail-safe to state that there are none and ask if the user
-                //                                              // wants to create a new Pet.
+                //                                         // If there are no Pets, have a fail-safe to state that there are none and ask if the user
+                //                                         // wants to create a new Pet.
                 Console.WriteLine("Press 'Q' to quit.");
                 Console.Write("Enter your selection here: ");
                 string mainMenuSelection = Console.ReadLine().ToLower();
