@@ -37,7 +37,7 @@ namespace template_csharp_virtual_pet
 
                     case "2":
                         myShelter.DisplayAllPets();
-                        console.ReadLine();
+                        Console.ReadLine(); // <--- the "C" was lowercase, preventing the application from running.
                         break;
 
                     case "q":
