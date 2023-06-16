@@ -15,6 +15,7 @@
         }
 
         // Method to display all pets in the shelter
+        // ----------- DISPLAY ALL PETS ----------- //
         public void DisplayAllPets()
         {
             int counter = 1;
@@ -22,7 +23,7 @@
             foreach (Pet pet in Pets)
             {
                 Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\t Health: {pet.PetHealth}\t" +
-                    $"Boredom: {pet.PetBoredom}\tHunger: {pet.PetHunger}\n");
+                    $"Hunger: {pet.PetHunger}\tBoredom: {pet.PetBoredom}\n");
                 counter++;
             }
         }

@@ -10,10 +10,13 @@
             while (running)
             {
                 Console.Clear();
-                Console.WriteLine("Welcome to Virtual Pet!\n");
+                Console.WriteLine("Welcome to the Virtual Pet Shelter!\n");
                 Console.WriteLine("What would you like to do?");
-                Console.WriteLine("1. Create a new Pet.");
-                Console.WriteLine("2. Go to Shelter.\n");
+                Console.WriteLine("1. Admit a new Pet");
+                Console.WriteLine("2. See all the Pets that are currently here");
+                Console.WriteLine("3. Interact with a single Pet");
+                Console.WriteLine("4. Interact with all Pets");
+                Console.WriteLine("5. Adopt a Pet\n");
                 Console.WriteLine("Press 'Q' to quit.");
                 Console.Write("Enter your selection here: ");
                 string mainMenuSelection = Console.ReadLine().ToLower();
@@ -21,15 +24,25 @@
                 switch (mainMenuSelection)
                 {
                     case "1":
-                        Pet newPet = CreateNewPet();    // Call the CreateNewPet method to create a new pet
+                        Pet newPet = CreateNewPet();    // Call the CreateNewPet method (down below) to create a new pet
                         shelter.Admit(newPet);          // Add the new pet to the shelter's Pets list
                         newPet.DisplayPet();            // Display the new pet's details
-                        newPet.InteractMenu();          // Allow interactions with the new pet
                         break;
 
                     case "2":
-                        shelter.DisplayAllPets();       // Display all pets in the shelter
+                        shelter.DisplayAllPets();       // Display all Pets in the shelter
                         Console.ReadLine();
+                        break;
+
+                    case "3":
+                        //InteractMenu();          // Allow interactions with a single Pet
+                        break;
+
+                    case  "4":
+                        newPet.InteractAllMenu(shelter);          // Allow interactions with all the Pets
+                        break;
+
+                    case "5":
                         break;
 
                     case "q":
