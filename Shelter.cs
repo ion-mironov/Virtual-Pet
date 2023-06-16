@@ -5,7 +5,7 @@
         // Field
         private List<Pet> pets;
 
-        // Properties
+        // Property
         public List<Pet> Pets { get; set; }
 
         // Constructor
@@ -14,7 +14,7 @@
             Pets = new List<Pet>();
         }
 
-        // ----------------------------- METHODS ------------------------------
+        // Method to display all pets in the shelter
         public void DisplayAllPets()
         {
             int counter = 1;
@@ -25,22 +25,19 @@
                     $"Boredom: {pet.PetBoredom}\tHunger: {pet.PetHunger}\n");
                 counter++;
             }
-
         }
 
-        // Method to Add a pet to the List - Admit()
+        // Method to add a pet to the shelter
         public void Admit(Pet pet)
         {
             Pets.Add(pet);
             Console.WriteLine($"You successfully added your pet to the shelter.");
         }
 
-        // Method to Remove a pet from the List - Adopt()
+        // Method to remove a pet from the shelter
         public void Adopt(Pet pet)
         {
             Pets.Remove(pet);
         }
-
-        // TODO Create multiple Method to interact with multiple pets or one pet - FeedAll(), PlayAll(), TakeAllToDoctor()
     }
 }
