@@ -3,11 +3,11 @@
     public class Pet
     {
         // FIELDS //
-        private string petName = string.Empty;
-        private string petSpecies = string.Empty;
-        private int petHealth = 60;
-        private int petHunger = 60;
-        private int petBoredom = 60;
+        private string petName;
+        private string petSpecies;
+        private int petHealth;
+        private int petHunger;
+        private int petBoredom;
 
         // PROPERTIES //
         public string PetName { get; set; }
@@ -39,9 +39,45 @@
         {
             Console.WriteLine("\nWhat is the name of your pet?");
             string nameInput = Console.ReadLine();
-            return nameInput; 
+            return nameInput;
         }
-        
+
+        public void InteractMenu()
+        {
+            string userChoice;
+            do
+            {
+                Console.WriteLine("What would you like to do with your Pet?");
+                Console.WriteLine("1. Play");
+                Console.WriteLine("2. Feed");
+                Console.WriteLine("3. Go to vet\n");
+                Console.WriteLine("0. Go back to Main Menu\n");
+                Console.Write("Enter a selection number: ");
+                userChoice = Console.ReadLine();
+
+                switch (userChoice)
+                {
+                    case "1":
+                        Play();
+                        break;
+                    case "2":
+                        Feed();
+                        break;
+                    case "3":
+                        SeeDoctor();
+                        break;
+                    case "0":
+                        break;
+                    default:
+                        Console.WriteLine("Your selection is invalid");
+                        break;
+                }
+                // call user Pet.Tick
+                // If user makes invalid selection, do not run Tick command.
+            }
+            while (userChoice != "0");
+        }
+
         public string SpeciesMenu()
         {
             int speciesSelection;
@@ -59,6 +95,7 @@
                 speciesSelection = Convert.ToInt32(Console.ReadLine());
             }
             while (speciesSelection < 1 || speciesSelection > 5);
+
             switch (speciesSelection)
             {
                 case 1:
@@ -77,24 +114,22 @@
                     animal = "Rabbit";
                     break;
                 default:
-                    animal =  string.Empty;
+                    animal = string.Empty;
                     break;
             }
             return animal;
         }
         public void Feed()
         {
-
             PetHunger -= 10;
             DisplayPet();
-            Console.WriteLine("You give your pet their favorite food!  NOM NOM NOM!");
+            Console.WriteLine("\nYou give your pet their favorite food! NOM NOM NOM!");
         }
         public void SeeDoctor()
         {
-
             PetHealth += 30;
             DisplayPet();
-            Console.WriteLine("\nYou make a check-up appointment for your pet!  They are being well taken care of!");
+            Console.WriteLine("\nYou make a check-up appointment for your pet! They are being well taken care of!");
         }
         public void Play()
         {
@@ -102,7 +137,7 @@
             PetHunger += 10;
             PetBoredom -= 20;
             DisplayPet();
-            Console.WriteLine("\nYou play with your pet!  They love the attention!");
+            Console.WriteLine("\nYou play with your pet; they love the attention!");
         }
         public void Tick()
         {
@@ -114,12 +149,12 @@
         {
             Console.Clear();
             Console.WriteLine("===================================================================================");
-            Console.WriteLine($"{PetName}                                                                        ");
-            Console.WriteLine($"{PetSpecies}                                                                     ");
-            Console.WriteLine("                                                                                    ");
-            Console.WriteLine($"\tHealth: {PetHealth}\t\t Boredom: {PetBoredom} \t\t Hunger: {PetHunger}        ");
-            Console.WriteLine("                                                                                    ");
-            Console.WriteLine("===================================================================================");
+            Console.WriteLine($"{PetName}                                                                         ");
+            Console.WriteLine($"{PetSpecies}                                                                      ");
+            Console.WriteLine("                                                                                   ");
+            Console.WriteLine($"\tHealth: {PetHealth}\t\t Boredom: {PetBoredom} \t\t Hunger: {PetHunger}          ");
+            Console.WriteLine("                                                                                   ");
+            Console.WriteLine("===================================================================================\n");
         }
 
         public int GetPetHealth()
@@ -155,5 +190,4 @@
         //}
 
     }
-
 }
