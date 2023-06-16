@@ -17,11 +17,13 @@
         // Method to display all pets in the shelter
         public void DisplayAllPets()
         {
+            int counter = 1;
             Console.WriteLine("Currently in your Shelter we have the following Pets:\n");
             foreach (Pet pet in Pets)
             {
-                Console.WriteLine($"Name: {pet.PetName}\t Species: {pet.PetSpecies}\t Health: {pet.PetHealth}\t" +
+                Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\t Health: {pet.PetHealth}\t" +
                     $"Boredom: {pet.PetBoredom}\tHunger: {pet.PetHunger}\n");
+                counter++;
             }
         }
 
@@ -29,6 +31,7 @@
         public void Admit(Pet pet)
         {
             Pets.Add(pet);
+            Console.WriteLine($"You successfully added your pet to the shelter.");
         }
 
         // Method to remove a pet from the shelter

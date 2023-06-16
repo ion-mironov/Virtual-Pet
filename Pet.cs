@@ -3,11 +3,11 @@
     public class Pet
     {
         // FIELDS //
-        private string petName = string.Empty;
-        private string petSpecies = string.Empty;
-        private int petHealth = 60;
-        private int petHunger = 60;
-        private int petBoredom = 60;
+        private string petName;
+        private string petSpecies;
+        private int petHealth;
+        private int petHunger;
+        private int petBoredom;
 
         // PROPERTIES //
         public string PetName { get; set; }
@@ -72,7 +72,7 @@
         {
             PetHunger -= 10;
             DisplayPet();
-            Console.WriteLine("You give your pet their favorite food! NOM NOM NOM!");
+            Console.WriteLine("\nYou give your pet their favorite food! NOM NOM NOM!");
         }
         public void SeeDoctor()
         {
