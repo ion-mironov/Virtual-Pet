@@ -90,74 +90,10 @@
         }
 
 
-        // -------------- INTERACTION MENU (ALL)-------------- //
-        public void InteractAllMenu(Shelter)
-        {
-            string userChoice;
-            do
-            {
-                Console.WriteLine("What would you like to do with your Pets?");
-                Console.WriteLine("1. Play with all of them!");
-                Console.WriteLine("2. Feed all of them");
-                Console.WriteLine("3. Full shelter vet visit\n");
-                Console.WriteLine("0. Go back to Main Menu\n");
-                Console.Write("Enter a selection number: ");
-                userChoice = Console.ReadLine();
-
-                switch (userChoice)
-                {
-                    case "1":
-                        PlayAll(Shelter);
-                        break;
-                    case "2":
-                        FeedAll(Shelter);
-                        break;
-                    case "3":
-                        SeeDoctorAll(Shelter);
-                        break;
-                    case "0":
-                        break;
-                    default:
-                        Console.WriteLine("Your selection is invalid");
-                        break;
-                }
-                // call user Pet.Tick
-                // Put in a fail-safe to prevent incorrect menu selection from utilizing the Tick function.
-            }
-            while (userChoice != "0");
-        }
+        
 
 
-        // ----------- INTERACTIONS (ALL) ----------- //
-        public void FeedAll(Shelter)
-        {
-            foreach (Pet pet in Shelter)
-            {
-                PetHunger -= 10;
-            }
-            Shelter.DisplayAllPets();
-            Console.WriteLine("\nYou fed all the pets their favorite food! NOM NOM NOM!");
-        }
-        public void SeeDoctorAll(Shelter)
-        {
-            foreach (Pet pet in Shelter)
-            {
-                PetHealth += 10;
-            }
-            Shelter.DisplayAllPets();
-            Console.WriteLine("\nYou make a check-up appointment for all the pets; they are being well taken care of!");
-        }
-        public void PlayAll(Shelter)
-        {
-            foreach (Pet pet in Shelter)
-            {
-            PetHealth += 10;
-            PetHunger += 10;
-            PetBoredom -= 20;
-            }
-            Shelter.DisplayAllPets();
-            Console.WriteLine("\nYou play with all your pets; they love the attention!");
-        }
+       
 
 
         // ----------- TICK FUNCTION FOR ALL PETS ----------- //

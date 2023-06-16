@@ -40,5 +40,72 @@
         {
             Pets.Remove(pet);
         }
+        // -------------- INTERACTION MENU (ALL)-------------- //
+        public void InteractAllMenu()
+        {
+            string userChoice;
+            do
+            {
+                Console.WriteLine("What would you like to do with your Pets?");
+                Console.WriteLine("1. Play with all of them!");
+                Console.WriteLine("2. Feed all of them");
+                Console.WriteLine("3. Full shelter vet visit\n");
+                Console.WriteLine("0. Go back to Main Menu\n");
+                Console.Write("Enter a selection number: ");
+                userChoice = Console.ReadLine();
+
+                switch (userChoice)
+                {
+                    case "1":
+                        PlayAll();
+                        break;
+                    case "2":
+                        FeedAll();
+                        break;
+                    case "3":
+                        SeeDoctorAll();
+                        break;
+                    case "0":
+                        break;
+                    default:
+                        Console.WriteLine("Your selection is invalid");
+                        break;
+                }
+                // call user Pet.Tick
+                // Put in a fail-safe to prevent incorrect menu selection from utilizing the Tick function.
+            }
+            while (userChoice != "0");
+        }
+
+        // ----------- INTERACTIONS (ALL) ----------- //
+        public void FeedAll()
+        {
+            foreach (Pet pet in Pets)
+            {
+                pet.PetHunger -= 10;
+            }
+            DisplayAllPets();
+            Console.WriteLine("\nYou fed all the pets their favorite food! NOM NOM NOM!");
+        }
+        public void SeeDoctorAll()
+        {
+            foreach (Pet pet in Pets)
+            {
+                pet.PetHealth += 10;
+            }
+            DisplayAllPets();
+            Console.WriteLine("\nYou make a check-up appointment for all the pets; they are being well taken care of!");
+        }
+        public void PlayAll()
+        {
+            foreach (Pet pet in Pets)
+            {
+                pet.PetHealth += 10;
+                pet.PetHunger += 10;
+                pet.PetBoredom -= 20;
+            }
+            DisplayAllPets();
+            Console.WriteLine("\nYou play with all your pets; they love the attention!");
+        }
     }
 }

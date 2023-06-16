@@ -39,7 +39,7 @@
                         break;
 
                     case  "4":
-                        newPet.InteractAllMenu(shelter);          // Allow interactions with all the Pets
+                        shelter.InteractAllMenu();          // Allow interactions with all the Pets
                         break;
 
                     case "5":
