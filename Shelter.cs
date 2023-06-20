@@ -38,12 +38,11 @@ namespace template_csharp_virtual_pet
         }
 
         // Method to remove a pet from the shelter
-        public void Adopt()
+        public void Adopt(Pet pet)
         {
-            Pet pet = GetPet();
             Pets.Remove(pet);
-            Console.WriteLine($"You have removed {pet.PetName} from the shelter.  It's great to see pets go to a new home!");
         }
+
         // -------------- INTERACTION MENU (ALL)-------------- //
         public void InteractAllMenu()
         {
@@ -82,19 +81,7 @@ namespace template_csharp_virtual_pet
         }
 
         // ----------- INTERACTIONS (ALL) ----------- //
-        public Pet GetPet()
-        {
-            int counter=1;
-            foreach (Pet pet in Pets)
-            {
-                Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\t Health: {pet.PetHealth}\t" +
-                   $"Hunger: {pet.PetHunger}\tBoredom: {pet.PetBoredom}\n");
-                counter++;
-            }
-            Console.WriteLine("Please enter the number of pet you wish to interact with: ");
-            int userSelection = Convert.ToInt32(Console.ReadLine());
-            return Pets[userSelection-1]; 
-        }
+
         public void FeedAll()
         {
             foreach (Pet pet in Pets)
