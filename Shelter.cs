@@ -39,7 +39,9 @@
         public void Adopt(Pet pet)
         {
             Pets.Remove(pet);
+            Console.WriteLine($"You successfully adopted {pet.PetName} from the shelter.");
         }
+
         // -------------- INTERACTION MENU (ALL)-------------- //
         public void InteractAllMenu()
         {

@@ -35,14 +35,35 @@
                         break;
 
                     case "3":
-                        //InteractMenu();          // Allow interactions with a single Pet
+                        Pet InteractMenu();             // Allow interactions with a single Pet
                         break;
 
                     case  "4":
-                        shelter.InteractAllMenu();          // Allow interactions with all the Pets
+                        shelter.InteractAllMenu();      // Allow interactions with all the Pets
                         break;
 
                     case "5":
+                        if (shelter.Pets.Count == 0)
+                        {
+                            Console.WriteLine("There are no pets in the shelter to adopt.");
+                        }
+                        else
+                        {
+                            shelter.DisplayAllPets(); // Display all available Pets in the shelter
+                            Console.Write("Enter the number of the pet you want to adopt: ");
+                            int petNumber = Convert.ToInt32(Console.ReadLine());
+
+                            if (petNumber >= 1 && petNumber <= shelter.Pets.Count)
+                            {
+                                Pet adoptedPet = shelter.Pets[petNumber - 1];   // Get the selected pet from the list
+                                shelter.Adopt(adoptedPet);                      // Remove the pet from the shelter
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid pet number.");
+                            }
+                        }
+                        Console.ReadLine();
                         break;
 
                     case "q":
