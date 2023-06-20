@@ -12,9 +12,39 @@
         // PROPERTIES //
         public string PetName { get; set; }
         public string PetSpecies { get; set; }
-        public int PetHealth { get { return petHealth; } set { petHealth = Math.Max(0, Math.Min(value, 150)); } }
-        public int PetHunger { get { return petHunger; } set { petHunger = Math.Max(0, Math.Min(value, 150)); } }
-        public int PetBoredom { get { return petBoredom; } set { petBoredom = Math.Max(0, Math.Min(value, 150)); } }
+        public int PetHealth
+        {
+            get { return petHealth; }
+            set
+            {
+                petHealth = Math.Max(0, Math.Min(value, 150));
+                // `Math.Min(value, 150)` calculates the minimum value between `value` and `150`.
+                // `value` refers to the current number (stat) of the Pet's Health.
+
+                // The result of `Math.Min(value, 150)` is passed as the second argument to Math.Max.
+                // `Math.Max` compares the second argument with `0` and returns the larger value.
+                // The resulting value is assigned to the relevant property, ensuring it stays within range.
+            }
+        }
+
+        public int PetHunger
+        {
+            get { return petHunger; }
+            set
+            {
+                petHunger = Math.Max(0, Math.Min(value, 150));
+            }
+        }
+
+        public int PetBoredom
+        {
+            get { return petBoredom; }
+            set
+            {
+                petBoredom = Math.Max(0, Math.Min(value, 150));
+            }
+        }
+
         // CONSTRUCTOR //
         public Pet(string petName, string petSpecies, int petHealth, int petBoredom, int petHunger)
         {
@@ -34,7 +64,7 @@
             string userChoice;
             do
             {
-                Console.WriteLine("What would you like to do with your Pet?");
+                Console.WriteLine("\nWhat would you like to do with your Pet?");
                 Console.WriteLine("1. Play");
                 Console.WriteLine("2. Feed");
                 Console.WriteLine("3. Go to vet\n");

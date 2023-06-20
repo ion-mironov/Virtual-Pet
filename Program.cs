@@ -35,7 +35,8 @@
                         break;
 
                     case "3":
-                        //InteractMenu();          // Allow interactions with a single Pet
+                        Pet selectedPet = shelter.GetPet();
+                        selectedPet.InteractMenu();             // Allow interactions with a single Pet
                         break;
 
                     case "4":
@@ -43,9 +44,9 @@
                         break;
 
                     case "5":
-                        shelter.DisplayAllPets();
-                        Console.Write("\nWhich pet is getting adopted and leaving the Shelter: ");
-                        int petChoice = Convert.ToInt32(Console.ReadLine());
+                        Pet adoptedPet = shelter.GetPet();
+                        shelter.Adopt(adoptedPet);
+                        Console.ReadLine();
                         break;
 
                     case "q":

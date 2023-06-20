@@ -41,6 +41,7 @@ namespace template_csharp_virtual_pet
         public void Adopt(Pet pet)
         {
             Pets.Remove(pet);
+            Console.WriteLine($"You successfully adopted {pet.PetName} from the shelter.");
         }
 
         // -------------- INTERACTION MENU (ALL)-------------- //
@@ -81,7 +82,30 @@ namespace template_csharp_virtual_pet
         }
 
         // ----------- INTERACTIONS (ALL) ----------- //
+        public Pet GetPet()
+        {
+            if (Pets.Count == 0)
+            {
+                Console.WriteLine("There are no pets in the shelter.");
+                return null;
+            }
+            else
+            {
+                DisplayAllPets(); // Display all available Pets in the shelter
+                Console.Write("Enter the number of the pet you want to select: ");
+                int petNumber = Convert.ToInt32(Console.ReadLine());
 
+                if (petNumber >= 1 && petNumber <= Pets.Count)
+                {
+                    return Pets[petNumber - 1];   // Get the selected pet from the list
+                }
+                else
+                {
+                    Console.WriteLine("Invalid pet number.");
+                    return null;
+                }
+            }
+        }
         public void FeedAll()
         {
             foreach (Pet pet in Pets)
