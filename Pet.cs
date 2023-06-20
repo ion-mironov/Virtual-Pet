@@ -89,8 +89,6 @@
                         Console.WriteLine("Your selection is invalid");
                         break;
                 }
-                // call user Pet.Tick
-                // Put in a fail-safe to prevent incorrect menu selection from utilizing the Tick function.
             }
             while (userChoice != "0");
         }
