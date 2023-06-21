@@ -64,8 +64,8 @@
                 Console.Clear();
                 Console.WriteLine("What would you like to do with your Pets?");
                 Console.WriteLine("1. Play with all of them!");
-                Console.WriteLine("2. Feed all of them!");
-                Console.WriteLine("3. Full shelter vet visit\n");
+                Console.WriteLine("2. Feed/Recharge all of them!");
+                Console.WriteLine("3. Full shelter vet/mechanic visit\n");
                 Console.WriteLine("0. Go back to the Main Menu\n");
                 Console.Write("Enter a selection number: ");
                 userChoice = Console.ReadLine();
