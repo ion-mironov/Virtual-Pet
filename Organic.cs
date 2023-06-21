@@ -2,12 +2,8 @@
 {
     public class Organic : Pet
     {
-        // FIELDS
-
-        // PROPERTIES
-
         // CONSTRUCTOR
-        public Organic(string petName, string petSpecies, int petHealth, int petBoredom, int petHunger) : base(petName, petSpecies, "Organic", petHealth, petBoredom, petHunger)
+        public Organic(string petName, string petSpecies, string petType, int petHealth, int petBoredom, int petHunger) : base(petName, petSpecies, "Organic", petHealth, petBoredom, petHunger)
         {
 
         }
@@ -17,11 +13,11 @@
 
         // -------------- INTERACTION MENU (INDIVIDUAL)-------------- //
         public override void InteractMenu()
-       {
+        {
             string userChoice;
             do
             {
-                Console.WriteLine("\nWhat would you like to do with your Pet?");
+                Console.WriteLine($"\nWhat would you like to do with {PetName}?");
                 Console.WriteLine("1. Play");
                 Console.WriteLine("2. Feed");
                 Console.WriteLine("3. Go to vet\n");
@@ -54,13 +50,13 @@
         {
             PetHunger -= 10;
             DisplayPet();
-            Console.WriteLine("\nYou give your pet their favorite food! NOM NOM NOM!");
+            Console.WriteLine($"\nYou give {PetName} their favorite food! NOM NOM NOM!");
         }
         public override void SeeDoctor()
         {
             PetHealth += 30;
             DisplayPet();
-            Console.WriteLine("\nYou make a check-up appointment for your pet; they are being well taken care of!");
+            Console.WriteLine($"\nYou make a check-up appointment for {PetName}; they are being well taken care of!");
         }
         public override void Play()
         {
@@ -68,7 +64,7 @@
             PetHunger += 10;
             PetBoredom -= 20;
             DisplayPet();
-            Console.WriteLine("\nYou play with your pet; they love the attention!");
+            Console.WriteLine($"\nYou play with {PetName}; they love the attention!");
         }
 
         public override void DisplayPet()
@@ -76,12 +72,11 @@
             Console.Clear();
             Console.WriteLine("===================================================================================");
             Console.WriteLine($"{PetName}                                                                         ");
-            Console.WriteLine($"{PetType} {PetSpecies}                                                                      ");
+            Console.WriteLine($"{PetType} {PetSpecies}                                                            ");
             Console.WriteLine("                                                                                   ");
             Console.WriteLine($"\tHealth: {PetHealth}\t\t Hunger: {PetHunger} \t\t Boredom: {PetBoredom}          ");
             Console.WriteLine("                                                                                   ");
             Console.WriteLine("===================================================================================\n");
         }
-        
     }
 }

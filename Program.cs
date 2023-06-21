@@ -1,22 +1,23 @@
 ﻿namespace template_csharp_virtual_pet
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             bool running = true;
-            Shelter shelter = new ();  // Create an instance of the Shelter class where newly created Pets will be stored in a List.
+            Shelter shelter = new Shelter();
 
             while (running)
             {
                 Console.Clear();
                 Console.WriteLine("Welcome to the Virtual Pet Shelter!\n");
                 Console.WriteLine("What would you like to do?");
-                Console.WriteLine("1. Admit a new Pet");
-                Console.WriteLine("2. See all the Pets that are currently here");
-                Console.WriteLine("3. Interact with a single Pet");
-                Console.WriteLine("4. Interact with all Pets");
-                Console.WriteLine("5. Adopt a Pet\n");
+                Console.WriteLine("1. Admit a new Organic Pet");
+                Console.WriteLine("2. Admit a new Robotic Pet");
+                Console.WriteLine("3. See all the Pets that are currently here");
+                Console.WriteLine("4. Interact with a single Pet");
+                Console.WriteLine("5. Interact with all Pets");
+                Console.WriteLine("6. Adopt a Pet\n");
                 Console.WriteLine("Press 'Q' to quit.");
                 Console.Write("Enter your selection here: ");
                 string mainMenuSelection = Console.ReadLine().ToLower();
@@ -24,27 +25,33 @@
                 switch (mainMenuSelection)
                 {
                     case "1":
-                        Pet newPet = CreateNewOrganicPet(); // Call the CreateNewPet method (down below) to create a new pet
-                        shelter.Admit(newPet);              // Add the new Pet to the shelter's Pets list
-                        newPet.DisplayPet();                // Display the new Pet's details
+                        Pet newOrganicPet = CreateNewPet(true);
+                        shelter.Admit(newOrganicPet);
+                        newOrganicPet.DisplayPet();
                         break;
 
                     case "2":
-                        shelter.DisplayAllPets();           // Display all Pets in the shelter
-                        Console.ReadLine();
+                        Pet newRoboticPet = CreateNewPet(false);
+                        shelter.Admit(newRoboticPet);
+                        newRoboticPet.DisplayPet();
                         break;
 
                     case "3":
-                        Pet selectedPet = shelter.GetPet();
-                        selectedPet.InteractMenu();         // Allow interactions with a single Pet
+                        shelter.DisplayAllPets();
+                        Console.ReadLine();
                         break;
 
                     case "4":
-                        shelter.InteractAllMenu();          // Allow interactions with all Pets
+                        Pet selectedPet = shelter.GetPet();
+                        selectedPet.InteractMenu();
                         break;
 
                     case "5":
-                        Pet adoptedPet = shelter.GetPet();  // Ability to adopt a Pet and remove it from the shelter
+                        shelter.InteractAllMenu();
+                        break;
+
+                    case "6":
+                        Pet adoptedPet = shelter.GetPet();
                         shelter.Adopt(adoptedPet);
                         Console.ReadLine();
                         break;
@@ -60,21 +67,20 @@
             }
         }
 
-        // Method to create a new Pet
-        static Pet CreateNewOrganicPet()       // Used to create an instance of the Pet class.
+        static Pet CreateNewPet(bool isOrganic)
         {
             string petName = NameMenu();
             string petSpecies = SpeciesMenu();
-            Organic newPet = new(petName, petSpecies, 60, 60, 60);
-            return newPet;
-        }
-        
-        static Pet CreateNewRoboticPet()
-        {
-            string petName = NameMenu();
-            string petSpecies = SpeciesMenu();
-            Robotic newPet = new(petName, petSpecies, 60, 60, 60);
-            return newPet;
+            if (isOrganic)
+            {
+                Organic newPet = new Organic(petName, petSpecies, "Organic", 60, 60, 60);
+                return newPet;
+            }
+            else
+            {
+                Robotic newPet = new Robotic(petName, petSpecies, "Robotic", 60, 60, 60);
+                return newPet;
+            }
         }
 
         // Method to get the name of the Pet from the user

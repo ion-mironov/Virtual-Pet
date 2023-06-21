@@ -25,9 +25,18 @@
             Console.WriteLine("Currently in your shelter we have the following Pets:\n");
             foreach (Pet pet in Pets)
             {
-                Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\tType: {pet.PetType}\tHealth: {pet.PetHealth}\t" +
+                if (pet is Organic)
+                {
+                    Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\tType: {pet.PetType}\tHealth: {pet.PetHealth}\t" +
                     $"Hunger: {pet.PetHunger}\tBoredom: {pet.PetBoredom}\n");
-                counter++;
+                    counter++;
+                }
+                else
+                {
+                    Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\tType: {pet.PetType}\tRust Level: {pet.PetHealth}\t" +
+                    $"Battery: {pet.PetHunger}\tIdleness: {pet.PetBoredom}\n");
+                    counter++;
+                }
             }
         }
 
@@ -115,7 +124,7 @@
                 pet.PetHunger -= 10;
             }
             DisplayAllPets();
-            Console.WriteLine("\nYou fed all the Pets their favorite food! NOM NOM NOM!");
+            Console.WriteLine("\nYou fed all the Pets their favorite food and recharged their batteries!");
         }
         public void SeeDoctorAll()
         {
@@ -124,7 +133,7 @@
                 pet.PetHealth += 10;
             }
             DisplayAllPets();
-            Console.WriteLine("\nYou make a check-up appointment for all the Pets; they are being well taken care of!");
+            Console.WriteLine("\nYou make vet and mechanic appointments for all the Pets; they are being well taken care of!");
         }
         public void PlayAll()
         {

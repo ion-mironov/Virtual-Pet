@@ -20,12 +20,6 @@
             set
             {
                 petHealth = Math.Max(0, Math.Min(value, 150));
-                // `Math.Min(value, 150)` calculates the minimum value between `value` and `150`.
-                // `value` refers to the current number (stat) of the Pet's Health.
-
-                // The result of `Math.Min(value, 150)` is passed as the second argument to Math.Max.
-                // `Math.Max` compares the second argument with `0` and returns the larger value.
-                // The resulting value is assigned to the relevant property, ensuring it stays within range.
             }
         }
         public int PetHunger
@@ -59,19 +53,11 @@
 
         // ------------------------------------------ METHODS ------------------------------------- //
 
-        // -------------- INTERACTION MENU (INDIVIDUAL)-------------- //
         public abstract void InteractMenu();
-       
-        // ----------- INTERACTIONS (INDIVIDUAL) ----------- //
         public abstract void Feed();
-        
         public abstract void SeeDoctor();
-      
         public abstract void Play();
-       
-       
-        // ----------- DISPLAY PET (INDIVIDUAL) ----------- //
         public abstract void DisplayPet();
-        
+
     }
 }
