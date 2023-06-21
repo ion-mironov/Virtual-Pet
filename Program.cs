@@ -10,8 +10,28 @@
             while (running)
             {
                 Console.Clear();
-                Console.WriteLine("Welcome to the Virtual Pet Shelter!\n");
-                Console.WriteLine("What would you like to do?");
+                Console.WriteLine(@"
+                                                                              __.-/|
+                                                                              \`o_O'
+                     .                                                         =( )=  +-----+
+                    / V\                                                         U|   | Hi! |
+                  / `  /                      /\   /\                  /\  /\   / |   +-----+    /|_/|
+                 <<   |                      //\\_//\\     ____       ) /^\) ^\/ _)\     |      / ^ ^(_o
+                 /    |                      \_     _/    /   /       )   /^\/   _) \    |     /    __.'
+               /      |           ((`\        / * * \    /^^^]        )   _ /  / _)  \___|_    /     \
+             /        |        ___ \\ '--._   \_\O/_/    [   ]    /\  )/\/ ||  | )_)\___,|))  (_) (_) '._
+           /    \  \ /      .'`   `'    o  )   /   \_    [   /   <  >      |(,,) )__)    |      '.__     '. .-''-'.
+          (      ) | |     /    \   '. __.'    \     \_  /  /     ||      /    \)___)\             ( '.   ('.____.''
+  ________|   _/_  | |    _|   / _  \ \_\_      [ [ /  \/ _/      | \____(      )___) )____        _) )'_, )
+<__________\______)\__)  {_\______\-'\__\_     _[ [ \  /_/         \______(_______;;;)__;;;)      (__/ (__/
+");
+
+                int screenWidth = Console.WindowWidth;
+                int centered = (screenWidth - "WELCOME TO THE VIRTUAL PET SHELTER!".Length) / 2;
+                Console.SetCursorPosition(centered, Console.CursorTop);
+                Console.WriteLine("WELCOME TO THE VIRTUAL PET SHELTER!");
+
+                Console.WriteLine("\nWhat would you like to do?\n");
                 Console.WriteLine("1. Admit a new Organic Pet");
                 Console.WriteLine("2. Admit a new Robotic Pet");
                 Console.WriteLine("3. See all the Pets that are currently here");
@@ -70,6 +90,7 @@
 
         static Pet CreateNewPet(bool isOrganic)
         {
+            Console.Clear();
             string petName = NameMenu();
             string petSpecies = SpeciesMenu();
             if (isOrganic)
@@ -87,7 +108,7 @@
         // Method to get the name of the Pet from the user
         static string NameMenu()
         {
-            Console.WriteLine("\nWhat is the name of your Pet?");
+            Console.WriteLine("What is the name of your Pet?");
             string nameInput = Console.ReadLine();
             return nameInput;
         }

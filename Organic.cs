@@ -2,14 +2,14 @@
 {
     public class Organic : Pet
     {
-        // CONSTRUCTOR
-        public Organic(string petName, string petSpecies, string petType, int petHealth, int petBoredom, int petHunger) : base(petName, petSpecies, "Organic", petHealth, petBoredom, petHunger)
+        // CONSTRUCTOR //
+        public Organic(string petName, string petSpecies, string petType, int petHealth, int petHunger, int petBoredom) : base(petName, petSpecies, "Organic", petHealth, petHunger, petBoredom)
         {
 
         }
 
 
-        // ------------------------------------------ METHODS ------------------------------------- //
+        // --------------------------- METHODS --------------------------- //
 
         // -------------- INTERACTION MENU (INDIVIDUAL)-------------- //
         public override void InteractMenu()
@@ -18,7 +18,7 @@
             do
             {
                 Console.Clear();
-                Console.WriteLine($"\nWhat would you like to do with {PetName}?");
+                Console.WriteLine($"What would you like to do with {PetName}?");
                 Console.WriteLine("1. Play");
                 Console.WriteLine("2. Feed");
                 Console.WriteLine("3. Go to vet\n");

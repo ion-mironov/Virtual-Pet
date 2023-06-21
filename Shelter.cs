@@ -2,21 +2,18 @@
 {
     public class Shelter
     {
-        // Field
-        private List<Pet> pets;
-
-        // Property
+        // PROPERTY //
         public List<Pet> Pets { get; set; }
 
 
-        // Constructor
+        // CONSTRUCTOR //
         public Shelter()
         {
             Pets = new List<Pet>();
         }
 
 
-        // ------------------------------------------ METHODS ------------------------------------- //
+        // --------------------------- METHODS --------------------------- //
 
         // ----------- DISPLAY ALL PETS ----------- //
         public void DisplayAllPets()        // Method to display all Pets in the shelter
@@ -40,7 +37,6 @@
             }
         }
 
-
         // ----------- INTERACTIONS (INDIVIDUAL) ----------- //
         public void Admit(Pet pet)      // Method to add a Pet to the shelter
         {
@@ -48,11 +44,35 @@
             Console.WriteLine($"You successfully added {pet.PetName} to the shelter.");
         }
 
-        // Method to remove a Pet from the shelter
-        public void Adopt(Pet pet)
+        public void Adopt(Pet pet)      // Method to remove a Pet from the shelter
         {
             Pets.Remove(pet);
             Console.WriteLine($"You successfully adopted {pet.PetName} from the shelter.");
+        }
+
+        public Pet GetPet()
+        {
+            if (Pets.Count == 0)
+            {
+                Console.WriteLine("There are currently no Pets in the shelter.");
+                return null;
+            }
+            else
+            {
+                DisplayAllPets(); // Display all available Pets in the shelter
+                Console.Write("Enter the number of the Pet you want to select: ");
+                int petNumber = Convert.ToInt32(Console.ReadLine());
+
+                if (petNumber >= 1 && petNumber <= Pets.Count)
+                {
+                    return Pets[petNumber - 1];   // Get the selected Pet from the list
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Pet number.");
+                    return null;
+                }
+            }
         }
 
         // -------------- INTERACTION MENU (ALL)-------------- //
@@ -92,31 +112,6 @@
             while (userChoice != "0");
         }
 
-        // ----------- INTERACTIONS (ALL) ----------- //
-        public Pet GetPet()
-        {
-            if (Pets.Count == 0)
-            {
-                Console.WriteLine("There are no Pets in the shelter.");
-                return null;
-            }
-            else
-            {
-                DisplayAllPets(); // Display all available Pets in the shelter
-                Console.Write("Enter the number of the Pet you want to select: ");
-                int petNumber = Convert.ToInt32(Console.ReadLine());
-
-                if (petNumber >= 1 && petNumber <= Pets.Count)
-                {
-                    return Pets[petNumber - 1];   // Get the selected Pet from the list
-                }
-                else
-                {
-                    Console.WriteLine("Invalid Pet number.");
-                    return null;
-                }
-            }
-        }
         public void FeedAll()
         {
             foreach (Pet pet in Pets)
