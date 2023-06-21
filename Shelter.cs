@@ -61,11 +61,12 @@
             string userChoice;
             do
             {
+                Console.Clear();
                 Console.WriteLine("What would you like to do with your Pets?");
                 Console.WriteLine("1. Play with all of them!");
                 Console.WriteLine("2. Feed all of them!");
                 Console.WriteLine("3. Full shelter vet visit\n");
-                Console.WriteLine("0. Go back to Main Menu\n");
+                Console.WriteLine("0. Go back to the Main Menu\n");
                 Console.Write("Enter a selection number: ");
                 userChoice = Console.ReadLine();
 
@@ -86,8 +87,7 @@
                         Console.WriteLine("Your selection is invalid");
                         break;
                 }
-                // call user Pet.Tick
-                // Put in a fail-safe to prevent incorrect menu selection from utilizing the Tick function.
+                TickAll();
             }
             while (userChoice != "0");
         }
@@ -145,6 +145,17 @@
             }
             DisplayAllPets();
             Console.WriteLine("\nYou play with all your Pets; they love the attention!");
+        }
+
+        // ----------- TICK FUNCTION FOR ALL PETS ----------- //
+        public void TickAll()
+        {
+            foreach (Pet pet in Pets)
+            {
+                pet.PetHealth -= 5;
+                pet.PetHunger += 5;
+                pet.PetBoredom += 5;
+            }
         }
     }
 }

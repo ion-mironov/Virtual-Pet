@@ -64,6 +64,7 @@
                     default:
                         break;
                 }
+                shelter.TickAll();
             }
         }
 

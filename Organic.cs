@@ -17,6 +17,7 @@
             string userChoice;
             do
             {
+                Console.Clear();
                 Console.WriteLine($"\nWhat would you like to do with {PetName}?");
                 Console.WriteLine("1. Play");
                 Console.WriteLine("2. Feed");
