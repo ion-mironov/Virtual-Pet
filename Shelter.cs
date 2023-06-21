@@ -16,12 +16,13 @@ namespace template_csharp_virtual_pet
             Pets = new List<Pet>();
         }
 
-        // Method to display all pets in the shelter
+
+        // Method to display all Pets in the shelter
         // ----------- DISPLAY ALL PETS ----------- //
         public void DisplayAllPets()
         {
             int counter = 1;
-            Console.WriteLine("Currently in your Shelter we have the following Pets:\n");
+            Console.WriteLine("Currently in your shelter we have the following Pets:\n");
             foreach (Pet pet in Pets)
             {
                 Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\t Health: {pet.PetHealth}\t" +
@@ -30,14 +31,14 @@ namespace template_csharp_virtual_pet
             }
         }
 
-        // Method to add a pet to the shelter
+        // Method to add a Pet to the shelter
         public void Admit(Pet pet)
         {
             Pets.Add(pet);
-            Console.WriteLine($"You successfully added your pet to the shelter.");
+            Console.WriteLine($"You successfully added your Pet to the shelter.");
         }
 
-        // Method to remove a pet from the shelter
+        // Method to remove a Pet from the shelter
         public void Adopt(Pet pet)
         {
             Pets.Remove(pet);
@@ -52,7 +53,7 @@ namespace template_csharp_virtual_pet
             {
                 Console.WriteLine("What would you like to do with your Pets?");
                 Console.WriteLine("1. Play with all of them!");
-                Console.WriteLine("2. Feed all of them");
+                Console.WriteLine("2. Feed all of them!");
                 Console.WriteLine("3. Full shelter vet visit\n");
                 Console.WriteLine("0. Go back to Main Menu\n");
                 Console.Write("Enter a selection number: ");
@@ -86,22 +87,22 @@ namespace template_csharp_virtual_pet
         {
             if (Pets.Count == 0)
             {
-                Console.WriteLine("There are no pets in the shelter.");
+                Console.WriteLine("There are no Pets in the shelter.");
                 return null;
             }
             else
             {
                 DisplayAllPets(); // Display all available Pets in the shelter
-                Console.Write("Enter the number of the pet you want to select: ");
+                Console.Write("Enter the number of the Pet you want to select: ");
                 int petNumber = Convert.ToInt32(Console.ReadLine());
 
                 if (petNumber >= 1 && petNumber <= Pets.Count)
                 {
-                    return Pets[petNumber - 1];   // Get the selected pet from the list
+                    return Pets[petNumber - 1];   // Get the selected Pet from the list
                 }
                 else
                 {
-                    Console.WriteLine("Invalid pet number.");
+                    Console.WriteLine("Invalid Pet number.");
                     return null;
                 }
             }
@@ -113,7 +114,7 @@ namespace template_csharp_virtual_pet
                 pet.PetHunger -= 10;
             }
             DisplayAllPets();
-            Console.WriteLine("\nYou fed all the pets their favorite food! NOM NOM NOM!");
+            Console.WriteLine("\nYou fed all the Pets their favorite food! NOM NOM NOM!");
         }
         public void SeeDoctorAll()
         {
@@ -122,7 +123,7 @@ namespace template_csharp_virtual_pet
                 pet.PetHealth += 10;
             }
             DisplayAllPets();
-            Console.WriteLine("\nYou make a check-up appointment for all the pets; they are being well taken care of!");
+            Console.WriteLine("\nYou make a check-up appointment for all the Pets; they are being well taken care of!");
         }
         public void PlayAll()
         {
@@ -133,7 +134,7 @@ namespace template_csharp_virtual_pet
                 pet.PetBoredom -= 20;
             }
             DisplayAllPets();
-            Console.WriteLine("\nYou play with all your pets; they love the attention!");
+            Console.WriteLine("\nYou play with all your Pets; they love the attention!");
         }
     }
 }

@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             bool running = true;
-            Shelter shelter = new Shelter();  // Create an instance of the Shelter class where newly created Pets will be stored in a List.
+            Shelter shelter = new ();  // Create an instance of the Shelter class where newly created Pets will be stored in a List.
 
             while (running)
             {
@@ -24,27 +24,27 @@
                 switch (mainMenuSelection)
                 {
                     case "1":
-                        Pet newPet = CreateNewPet();    // Call the CreateNewPet method (down below) to create a new pet
-                        shelter.Admit(newPet);          // Add the new pet to the shelter's Pets list
-                        newPet.DisplayPet();            // Display the new pet's details
+                        Pet newPet = CreateNewPet();        // Call the CreateNewPet method (down below) to create a new pet
+                        shelter.Admit(newPet);              // Add the new Pet to the shelter's Pets list
+                        newPet.DisplayPet();                // Display the new Pet's details
                         break;
 
                     case "2":
-                        shelter.DisplayAllPets();       // Display all Pets in the shelter
+                        shelter.DisplayAllPets();           // Display all Pets in the shelter
                         Console.ReadLine();
                         break;
 
                     case "3":
                         Pet selectedPet = shelter.GetPet();
-                        selectedPet.InteractMenu();             // Allow interactions with a single Pet
+                        selectedPet.InteractMenu();         // Allow interactions with a single Pet
                         break;
 
                     case "4":
-                        shelter.InteractAllMenu();          // Allow interactions with all the Pets
+                        shelter.InteractAllMenu();          // Allow interactions with all Pets
                         break;
 
                     case "5":
-                        Pet adoptedPet = shelter.GetPet();
+                        Pet adoptedPet = shelter.GetPet();  // Ability to adopt a Pet and remove it from the shelter
                         shelter.Adopt(adoptedPet);
                         Console.ReadLine();
                         break;
@@ -60,24 +60,24 @@
             }
         }
 
-        // Method to create a new pet
+        // Method to create a new Pet
         static Pet CreateNewPet()       // Used to create an instance of the Pet class.
         {
             string petName = NameMenu();
             string petSpecies = SpeciesMenu();
-            Pet newPet = new Pet(petName, petSpecies, 60, 60, 60);
+            Pet newPet = new (petName, petSpecies, 60, 60, 60);
             return newPet;
         }
 
-        // Method to get the name of the pet from the user
+        // Method to get the name of the Pet from the user
         static string NameMenu()
         {
-            Console.WriteLine("\nWhat is the name of your pet?");
+            Console.WriteLine("\nWhat is the name of your Pet?");
             string nameInput = Console.ReadLine();
             return nameInput;
         }
 
-        // Method to get the species of the pet from the user
+        // Method to get the species of the Pet from the user
         static string SpeciesMenu()
         {
             int speciesSelection;
@@ -85,7 +85,7 @@
             do
             {
                 Console.Clear();
-                Console.WriteLine("What is the species of your new pet?");
+                Console.WriteLine("What is the species of your new Pet?");
                 Console.WriteLine("1. Wolf");
                 Console.WriteLine("2. Fox");
                 Console.WriteLine("3. Red Panda");

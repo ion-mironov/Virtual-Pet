@@ -26,7 +26,6 @@
                 // The resulting value is assigned to the relevant property, ensuring it stays within range.
             }
         }
-
         public int PetHunger
         {
             get { return petHunger; }
@@ -35,7 +34,6 @@
                 petHunger = Math.Max(0, Math.Min(value, 150));
             }
         }
-
         public int PetBoredom
         {
             get { return petBoredom; }
@@ -95,17 +93,17 @@
 
 
         // ----------- INTERACTIONS (INDIVIDUAL) ----------- //
-        public void Feed()
+        protected abstract void Feed()
         {
             PetHunger -= 10;
             DisplayPet();
-            Console.WriteLine("\nYou give your pet their favorite food! NOM NOM NOM!");
+            Console.WriteLine("\nYou give your Pet their favorite food! NOM NOM NOM!");
         }
         public void SeeDoctor()
         {
             PetHealth += 30;
             DisplayPet();
-            Console.WriteLine("\nYou make a check-up appointment for your pet; they are being well taken care of!");
+            Console.WriteLine("\nYou make a check-up appointment for your Pet; they are being well taken care of!");
         }
         public void Play()
         {
@@ -113,15 +111,8 @@
             PetHunger += 10;
             PetBoredom -= 20;
             DisplayPet();
-            Console.WriteLine("\nYou play with your pet; they love the attention!");
+            Console.WriteLine("\nYou play with your Pet; they love the attention!");
         }
-
-
-        
-
-
-       
-
 
         // ----------- TICK FUNCTION FOR ALL PETS ----------- //
         public void TickAll()
@@ -130,7 +121,6 @@
             PetHunger += 5;
             PetBoredom += 5;
         }
-
 
         // ----------- DISPLAY PET (INDIVIDUAL) ----------- //
         public void DisplayPet()
@@ -149,12 +139,10 @@
         {
             return PetHealth;
         }
-
         public int GetPetHunger()
         {
             return PetHunger;
         }
-
         public int GetPetBoredom()
         {
             return PetBoredom;
