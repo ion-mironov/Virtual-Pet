@@ -24,7 +24,7 @@
                 switch (mainMenuSelection)
                 {
                     case "1":
-                        Pet newPet = CreateNewPet();        // Call the CreateNewPet method (down below) to create a new pet
+                        Pet newPet = CreateNewOrganicPet(); // Call the CreateNewPet method (down below) to create a new pet
                         shelter.Admit(newPet);              // Add the new Pet to the shelter's Pets list
                         newPet.DisplayPet();                // Display the new Pet's details
                         break;
@@ -61,11 +61,19 @@
         }
 
         // Method to create a new Pet
-        static Pet CreateNewPet()       // Used to create an instance of the Pet class.
+        static Pet CreateNewOrganicPet()       // Used to create an instance of the Pet class.
         {
             string petName = NameMenu();
             string petSpecies = SpeciesMenu();
-            Pet newPet = new (petName, petSpecies, 60, 60, 60);
+            Organic newPet = new(petName, petSpecies, 60, 60, 60);
+            return newPet;
+        }
+        
+        static Pet CreateNewRoboticPet()
+        {
+            string petName = NameMenu();
+            string petSpecies = SpeciesMenu();
+            Robotic newPet = new(petName, petSpecies, 60, 60, 60);
             return newPet;
         }
 

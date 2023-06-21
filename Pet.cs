@@ -1,10 +1,11 @@
 ﻿namespace template_csharp_virtual_pet
 {
-    public class Pet
+    public abstract class Pet
     {
         // FIELDS //
         private string petName;
         private string petSpecies;
+        private string petType;
         private int petHealth;
         private int petHunger;
         private int petBoredom;
@@ -12,6 +13,7 @@
         // PROPERTIES //
         public string PetName { get; set; }
         public string PetSpecies { get; set; }
+        public string PetType { get; set; }
         public int PetHealth
         {
             get { return petHealth; }
@@ -44,10 +46,11 @@
         }
 
         // CONSTRUCTOR //
-        public Pet(string petName, string petSpecies, int petHealth, int petBoredom, int petHunger)
+        public Pet(string petName, string petSpecies, string petType, int petHealth, int petBoredom, int petHunger)
         {
             PetName = petName;
             PetSpecies = petSpecies;
+            PetType = petType;
             PetHunger = petHealth;
             PetBoredom = petBoredom;
             PetHealth = petHunger;
@@ -57,95 +60,18 @@
         // ------------------------------------------ METHODS ------------------------------------- //
 
         // -------------- INTERACTION MENU (INDIVIDUAL)-------------- //
-        public void InteractMenu()
-        {
-            string userChoice;
-            do
-            {
-                Console.WriteLine("\nWhat would you like to do with your Pet?");
-                Console.WriteLine("1. Play");
-                Console.WriteLine("2. Feed");
-                Console.WriteLine("3. Go to vet\n");
-                Console.WriteLine("0. Go back to Main Menu\n");
-                Console.Write("Enter a selection number: ");
-                userChoice = Console.ReadLine();
-
-                switch (userChoice)
-                {
-                    case "1":
-                        Play();
-                        break;
-                    case "2":
-                        Feed();
-                        break;
-                    case "3":
-                        SeeDoctor();
-                        break;
-                    case "0":
-                        break;
-                    default:
-                        Console.WriteLine("Your selection is invalid");
-                        break;
-                }
-            }
-            while (userChoice != "0");
-        }
-
-
+        public abstract void InteractMenu();
+       
         // ----------- INTERACTIONS (INDIVIDUAL) ----------- //
-        protected abstract void Feed()
-        {
-            PetHunger -= 10;
-            DisplayPet();
-            Console.WriteLine("\nYou give your Pet their favorite food! NOM NOM NOM!");
-        }
-        public void SeeDoctor()
-        {
-            PetHealth += 30;
-            DisplayPet();
-            Console.WriteLine("\nYou make a check-up appointment for your Pet; they are being well taken care of!");
-        }
-        public void Play()
-        {
-            PetHealth += 10;
-            PetHunger += 10;
-            PetBoredom -= 20;
-            DisplayPet();
-            Console.WriteLine("\nYou play with your Pet; they love the attention!");
-        }
-
-        // ----------- TICK FUNCTION FOR ALL PETS ----------- //
-        public void TickAll()
-        {
-            PetHealth -= 5;
-            PetHunger += 5;
-            PetBoredom += 5;
-        }
-
+        public abstract void Feed();
+        
+        public abstract void SeeDoctor();
+      
+        public abstract void Play();
+       
+       
         // ----------- DISPLAY PET (INDIVIDUAL) ----------- //
-        public void DisplayPet()
-        {
-            Console.Clear();
-            Console.WriteLine("===================================================================================");
-            Console.WriteLine($"{PetName}                                                                         ");
-            Console.WriteLine($"{PetSpecies}                                                                      ");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine($"\tHealth: {PetHealth}\t\t Hunger: {PetHunger} \t\t Boredom: {PetBoredom}          ");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("===================================================================================\n");
-        }
-
-        public int GetPetHealth()
-        {
-            return PetHealth;
-        }
-        public int GetPetHunger()
-        {
-            return PetHunger;
-        }
-        public int GetPetBoredom()
-        {
-            return PetBoredom;
-        }
+        public abstract void DisplayPet();
+        
     }
 }

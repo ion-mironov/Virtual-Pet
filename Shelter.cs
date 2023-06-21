@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-
-namespace template_csharp_virtual_pet
+﻿namespace template_csharp_virtual_pet
 {
     public class Shelter
     {
@@ -10,6 +8,7 @@ namespace template_csharp_virtual_pet
         // Property
         public List<Pet> Pets { get; set; }
 
+
         // Constructor
         public Shelter()
         {
@@ -17,25 +16,27 @@ namespace template_csharp_virtual_pet
         }
 
 
-        // Method to display all Pets in the shelter
+        // ------------------------------------------ METHODS ------------------------------------- //
+
         // ----------- DISPLAY ALL PETS ----------- //
-        public void DisplayAllPets()
+        public void DisplayAllPets()        // Method to display all Pets in the shelter
         {
             int counter = 1;
             Console.WriteLine("Currently in your shelter we have the following Pets:\n");
             foreach (Pet pet in Pets)
             {
-                Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\t Health: {pet.PetHealth}\t" +
+                Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\tType: {pet.PetType}\tHealth: {pet.PetHealth}\t" +
                     $"Hunger: {pet.PetHunger}\tBoredom: {pet.PetBoredom}\n");
                 counter++;
             }
         }
 
-        // Method to add a Pet to the shelter
-        public void Admit(Pet pet)
+
+        // ----------- INTERACTIONS (INDIVIDUAL) ----------- //
+        public void Admit(Pet pet)      // Method to add a Pet to the shelter
         {
             Pets.Add(pet);
-            Console.WriteLine($"You successfully added your Pet to the shelter.");
+            Console.WriteLine($"You successfully added {pet.PetName} to the shelter.");
         }
 
         // Method to remove a Pet from the shelter

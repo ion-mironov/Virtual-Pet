@@ -7,11 +7,15 @@
         // PROPERTIES
 
         // CONSTRUCTOR
+        public Organic(string petName, string petSpecies, int petHealth, int petBoredom, int petHunger) : base(petName, petSpecies, "Organic", petHealth, petBoredom, petHunger)
+        {
+
+        }
 
 
+        // ------------------------------------------ METHODS ------------------------------------- //
 
-        // METHODS
-
+        // -------------- INTERACTION MENU (INDIVIDUAL)-------------- //
         public override void InteractMenu()
        {
             string userChoice;
@@ -72,7 +76,7 @@
             Console.Clear();
             Console.WriteLine("===================================================================================");
             Console.WriteLine($"{PetName}                                                                         ");
-            Console.WriteLine($"{PetSpecies}                                                                      ");
+            Console.WriteLine($"{PetType} {PetSpecies}                                                                      ");
             Console.WriteLine("                                                                                   ");
             Console.WriteLine($"\tHealth: {PetHealth}\t\t Hunger: {PetHunger} \t\t Boredom: {PetBoredom}          ");
             Console.WriteLine("                                                                                   ");
