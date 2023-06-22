@@ -72,7 +72,10 @@
 
                     case "6":
                         Pet adoptedPet = shelter.GetPet();
-                        shelter.Adopt(adoptedPet);
+                        if (adoptedPet != null)
+                        {
+                            shelter.Adopt(adoptedPet);                           
+                        }
                         Console.ReadLine();
                         break;
 
