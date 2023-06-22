@@ -17,7 +17,7 @@
             string userChoice;
             do
             {
-                Console.Clear();
+                DisplayPet();
                 Console.WriteLine($"What would you like to do with {PetName}?");
                 Console.WriteLine("1. Play");
                 Console.WriteLine("2. Recharge");
@@ -52,12 +52,14 @@
             PetHunger += 10;
             DisplayPet();
             Console.WriteLine($"\nYou recharge {PetName}'s batteries. BZZZZT!");
+            Console.ReadLine();
         }
         public override void SeeDoctor()
         {
             PetHealth += 30;
             DisplayPet();
             Console.WriteLine($"\nYou take {PetName} to the shop for a tune-up; they are being well taken care of!");
+            Console.ReadLine();
         }
         public override void Play()
         {
@@ -66,6 +68,7 @@
             PetBoredom -= 20;
             DisplayPet();
             Console.WriteLine($"\nYou play with {PetName}; their gyros are spinning excitedly!");
+            Console.ReadLine();
         }
 
         public override void DisplayPet()

@@ -48,15 +48,18 @@
                         Pet newOrganicPet = CreateNewPet(true);
                         shelter.Admit(newOrganicPet);
                         newOrganicPet.DisplayPet();
+                        Console.ReadLine();
                         break;
 
                     case "2":
                         Pet newRoboticPet = CreateNewPet(false);
                         shelter.Admit(newRoboticPet);
                         newRoboticPet.DisplayPet();
+                        Console.ReadLine();
                         break;
 
                     case "3":
+                        Console.Clear();
                         shelter.DisplayAllPets();
                         Console.ReadLine();
                         break;
