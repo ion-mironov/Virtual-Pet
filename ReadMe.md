@@ -1,8 +1,12 @@
 ﻿# Virtual Pets Re-Imagined
 
+
+Virtual Pet Shelter is a small game where you get to create your own virtual pet and take care of them! Be sure to keep an eye on your Pets and their statuses
+to make sure they're happy and healthy!
+
+
 ## IMPORTANT NOTICE
 Any interaction with any Pet, whether creating a new one or interacting with an existing one, will cause all Pets' statuses to slightly decline.
-Be sure to keep an eye on all your Pets to ensure they're happy and healthy!
 
 
 ## HOW TO PLAY
