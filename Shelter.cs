@@ -19,7 +19,7 @@
         public void DisplayAllPets()        // Method to display all Pets in the shelter
         {
             int counter = 1;
-            Console.WriteLine("Currently in your shelter we have the following Pets:\n");
+            Console.WriteLine("These are the Pets currently in the shelter:\n");
             foreach (Pet pet in Pets)
             {
                 if (pet is Organic)
@@ -59,7 +59,7 @@
             }
             else
             {
-                DisplayAllPets(); // Display all available Pets in the shelter
+                DisplayAllPets();       // Display all available Pets in the shelter
                 Console.Write("Enter the number of the Pet you want to select: ");
                 int petNumber = Convert.ToInt32(Console.ReadLine());
 
