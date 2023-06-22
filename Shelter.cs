@@ -19,22 +19,24 @@
         public void DisplayAllPets()        // Method to display all Pets in the shelter
         {
             int counter = 1;
-            Console.WriteLine("These are the Pets currently in the shelter:\n");
+            Console.WriteLine("Currently in your shelter we have the following Pets:\n");
+            Console.WriteLine("===============================================================================================================");
             foreach (Pet pet in Pets)
             {
                 if (pet is Organic)
                 {
-                    Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\tType: {pet.PetType}\tHealth: {pet.PetHealth}\t" +
+                    Console.WriteLine($"PET #{counter}\tName: {pet.PetName.PadRight(12)}Species: {pet.PetSpecies.PadRight(12)}Type: {pet.PetType}\tHealth: {pet.PetHealth}\t" +
                     $"Hunger: {pet.PetHunger}\tBoredom: {pet.PetBoredom}\n");
                     counter++;
                 }
                 else
                 {
-                    Console.WriteLine($"PET #{counter}:\t\t Name: {pet.PetName}\t Species: {pet.PetSpecies}\tType: {pet.PetType}\tRust Level: {pet.PetHealth}\t" +
+                    Console.WriteLine($"PET #{counter}\tName: {pet.PetName.PadRight(12)}Species: {pet.PetSpecies.PadRight(12)}Type: {pet.PetType}\tRust level: {pet.PetHealth}\t" +
                     $"Battery: {pet.PetHunger}\tIdleness: {pet.PetBoredom}\n");
                     counter++;
                 }
             }
+            Console.WriteLine("===============================================================================================================");
         }
 
         // ----------- INTERACTIONS (INDIVIDUAL) ----------- //
@@ -47,7 +49,7 @@
         public void Adopt(Pet pet)      // Method to remove a Pet from the shelter
         {
             Pets.Remove(pet);
-            Console.WriteLine($"You successfully adopted {pet.PetName} from the shelter.");
+            Console.WriteLine($"\nYou successfully adopted {pet.PetName} from the shelter.");
         }
 
         public Pet GetPet()
@@ -82,6 +84,7 @@
             do
             {
                 Console.Clear();
+                DisplayAllPets();
                 Console.WriteLine("What would you like to do with your Pets?");
                 Console.WriteLine("1. Play with all of them!");
                 Console.WriteLine("2. Feed/Recharge all of them!");
@@ -116,10 +119,20 @@
         {
             foreach (Pet pet in Pets)
             {
-                pet.PetHunger -= 10;
+                if (pet is Organic)
+                {
+                    pet.PetHunger -= 10;
+                }
+                else
+                {
+                    pet.PetHunger += 10;
+                }
+                
             }
+            Console.Clear();
             DisplayAllPets();
             Console.WriteLine("\nYou fed all the Pets their favorite food and recharged their batteries!");
+            Console.ReadLine();
         }
         public void SeeDoctorAll()
         {
@@ -127,29 +140,51 @@
             {
                 pet.PetHealth += 10;
             }
+            Console.Clear();
             DisplayAllPets();
             Console.WriteLine("\nYou make vet and mechanic appointments for all the Pets; they are being well taken care of!");
+            Console.ReadLine();
         }
         public void PlayAll()
         {
             foreach (Pet pet in Pets)
             {
-                pet.PetHealth += 10;
-                pet.PetHunger += 10;
-                pet.PetBoredom -= 20;
+                if (pet is Organic)
+                {
+                    pet.PetHealth += 10;
+                    pet.PetHunger += 10;
+                    pet.PetBoredom -= 20;
+                }
+                else
+                {
+                    pet.PetHealth += 10;
+                    pet.PetHunger -= 10;
+                    pet.PetBoredom -= 20;
+                }      
             }
+            Console.Clear();
             DisplayAllPets();
             Console.WriteLine("\nYou play with all your Pets; they love the attention!");
+            Console.ReadLine();
         }
 
         // ----------- TICK FUNCTION FOR ALL PETS ----------- //
-        public void TickAll()
+        public void TickAll()   // Gradually decays the Pet stats. Organic pets increase it's hunger while Robotic pets decrease Battery charge
         {
             foreach (Pet pet in Pets)
             {
-                pet.PetHealth -= 5;
-                pet.PetHunger += 5;
-                pet.PetBoredom += 5;
+                if (pet is Organic)
+                {
+                    pet.PetHealth -= 5;
+                    pet.PetHunger += 5;
+                    pet.PetBoredom += 5;
+                }
+                else
+                {
+                    pet.PetHealth -= 5;
+                    pet.PetHunger -= 5;
+                    pet.PetBoredom += 5;
+                }
             }
         }
     }

@@ -48,20 +48,24 @@
                         Pet newOrganicPet = CreateNewPet(true);
                         shelter.Admit(newOrganicPet);
                         newOrganicPet.DisplayPet();
+                        Console.ReadLine();
                         break;
 
                     case "2":
                         Pet newRoboticPet = CreateNewPet(false);
                         shelter.Admit(newRoboticPet);
                         newRoboticPet.DisplayPet();
+                        Console.ReadLine();
                         break;
 
                     case "3":
+                        Console.Clear();
                         shelter.DisplayAllPets();
                         Console.ReadLine();
                         break;
 
                     case "4":
+                        Console.Clear();
                         Pet selectedPet = shelter.GetPet();
                         selectedPet.InteractMenu();
                         break;
@@ -71,14 +75,18 @@
                         break;
 
                     case "6":
+                        Console.Clear();
                         Pet adoptedPet = shelter.GetPet();
-                        shelter.Adopt(adoptedPet);
+                        if (adoptedPet != null)
+                        {
+                            shelter.Adopt(adoptedPet);                           
+                        }
                         Console.ReadLine();
                         break;
 
                     case "q":
                         running = false;
-                        Console.WriteLine("Good-bye! Come back anytime!");
+                        Console.WriteLine("\nGood-bye! Come back anytime!");
                         break;
 
                     default:
