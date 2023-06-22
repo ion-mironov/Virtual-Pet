@@ -81,6 +81,13 @@
         public void InteractAllMenu()
         {
             string userChoice;
+            if (Pets.Count == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("You have no pets in the shelter to interact with.  Admit a pet to the shelter first!");
+                Console.ReadLine();
+                return;
+            }
             do
             {
                 Console.Clear();

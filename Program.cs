@@ -67,7 +67,15 @@
                     case "4":
                         Console.Clear();
                         Pet selectedPet = shelter.GetPet();
-                        selectedPet.InteractMenu();
+                        if (selectedPet != null)
+                        {
+                            selectedPet.InteractMenu();
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have no pets to interact with.  Admit a pet to the shelter first!");
+                            Console.ReadLine();
+                        }
                         break;
 
                     case "5":
@@ -80,6 +88,10 @@
                         if (adoptedPet != null)
                         {
                             shelter.Adopt(adoptedPet);                           
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have no pets to interact with.  Admit a pet to the shelter first!");
                         }
                         Console.ReadLine();
                         break;
