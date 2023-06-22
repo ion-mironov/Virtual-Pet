@@ -65,6 +65,7 @@
                         break;
 
                     case "4":
+                        Console.Clear();
                         Pet selectedPet = shelter.GetPet();
                         selectedPet.InteractMenu();
                         break;
