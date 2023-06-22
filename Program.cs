@@ -99,10 +99,6 @@
                         {
                             Console.WriteLine("You have no pets to interact with.  Admit a pet to the shelter first!");
                         }
-                        else
-                        {
-                            Console.WriteLine("You have no pets to interact with.  Admit a pet to the shelter first!");
-                        }
                         Console.ReadLine();
                         break;
 
