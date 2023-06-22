@@ -49,7 +49,7 @@
         public void Adopt(Pet pet)      // Method to remove a Pet from the shelter
         {
             Pets.Remove(pet);
-            Console.WriteLine($"You successfully adopted {pet.PetName} from the shelter.");
+            Console.WriteLine($"\nYou successfully adopted {pet.PetName} from the shelter.");
         }
 
         public Pet GetPet()

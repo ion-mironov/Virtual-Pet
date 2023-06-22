@@ -75,6 +75,7 @@
                         break;
 
                     case "6":
+                        Console.Clear();
                         Pet adoptedPet = shelter.GetPet();
                         if (adoptedPet != null)
                         {
@@ -85,7 +86,7 @@
 
                     case "q":
                         running = false;
-                        Console.WriteLine("Good-bye! Come back anytime!");
+                        Console.WriteLine("\nGood-bye! Come back anytime!");
                         break;
 
                     default:
