@@ -18,12 +18,16 @@
             do
             {
                 DisplayPet();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"What would you like to do with {PetName}?");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("1. Play");
                 Console.WriteLine("2. Feed");
                 Console.WriteLine("3. Go to vet\n");
                 Console.WriteLine("0. Go back to Main Menu\n");
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Enter a selection number: ");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 userChoice = Console.ReadLine();
 
                 switch (userChoice)
@@ -79,7 +83,6 @@
             Console.WriteLine($"{PetType} {PetSpecies}                                                            ");
             Console.WriteLine("                                                                                   ");
             Console.WriteLine($"\tHealth: {PetHealth}\t\t Hunger: {PetHunger} \t\t Boredom: {PetBoredom}          ");
-            Console.WriteLine("                                                                                   ");
             Console.WriteLine("===================================================================================\n");
         }
     }

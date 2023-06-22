@@ -19,7 +19,9 @@
         public void DisplayAllPets()        // Method to display all Pets in the shelter
         {
             int counter = 1;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Currently in your shelter we have the following Pets:\n");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("===============================================================================================================");
             foreach (Pet pet in Pets)
             {
@@ -61,8 +63,10 @@
             }
             else
             {
-                DisplayAllPets();       // Display all available Pets in the shelter
+                DisplayAllPets(); // Display all available Pets in the shelter
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Enter the number of the Pet you want to select: ");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 int petNumber = Convert.ToInt32(Console.ReadLine());
 
                 if (petNumber >= 1 && petNumber <= Pets.Count)
@@ -81,16 +85,27 @@
         public void InteractAllMenu()
         {
             string userChoice;
+            if (Pets.Count == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("You have no pets in the shelter to interact with.  Admit a pet to the shelter first!");
+                Console.ReadLine();
+                return;
+            }
             do
             {
                 Console.Clear();
                 DisplayAllPets();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("What would you like to do with your Pets?");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("1. Play with all of them!");
                 Console.WriteLine("2. Feed/Recharge all of them!");
                 Console.WriteLine("3. Full shelter vet/mechanic visit\n");
                 Console.WriteLine("0. Go back to the Main Menu\n");
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Enter a selection number: ");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 userChoice = Console.ReadLine();
 
                 switch (userChoice)
@@ -127,7 +142,7 @@
                 {
                     pet.PetHunger += 10;
                 }
-                
+
             }
             Console.Clear();
             DisplayAllPets();
@@ -160,7 +175,7 @@
                     pet.PetHealth += 10;
                     pet.PetHunger -= 10;
                     pet.PetBoredom -= 20;
-                }      
+                }
             }
             Console.Clear();
             DisplayAllPets();

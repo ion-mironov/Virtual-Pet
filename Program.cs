@@ -4,6 +4,8 @@
     {
         static void Main(string[] args)
         {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             bool running = true;
             Shelter shelter = new Shelter();
 
@@ -31,7 +33,9 @@
                 Console.SetCursorPosition(centered, Console.CursorTop);
                 Console.WriteLine("WELCOME TO THE VIRTUAL PET SHELTER!");
 
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nWhat would you like to do?\n");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("1. Admit a new Organic Pet");
                 Console.WriteLine("2. Admit a new Robotic Pet");
                 Console.WriteLine("3. See all the Pets that are currently here");
@@ -39,7 +43,9 @@
                 Console.WriteLine("5. Interact with all Pets");
                 Console.WriteLine("6. Adopt a Pet\n");
                 Console.WriteLine("Press 'Q' to quit.");
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Enter your selection here: ");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 string mainMenuSelection = Console.ReadLine().ToLower();
 
                 switch (mainMenuSelection)
@@ -67,7 +73,15 @@
                     case "4":
                         Console.Clear();
                         Pet selectedPet = shelter.GetPet();
-                        selectedPet.InteractMenu();
+                        if (selectedPet != null)
+                        {
+                            selectedPet.InteractMenu();
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have no pets to interact with.  Admit a pet to the shelter first!");
+                            Console.ReadLine();
+                        }
                         break;
 
                     case "5":
@@ -79,7 +93,11 @@
                         Pet adoptedPet = shelter.GetPet();
                         if (adoptedPet != null)
                         {
-                            shelter.Adopt(adoptedPet);                           
+                            shelter.Adopt(adoptedPet);
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have no pets to interact with.  Admit a pet to the shelter first!");
                         }
                         Console.ReadLine();
                         break;
@@ -116,7 +134,9 @@
         // Method to get the name of the Pet from the user
         static string NameMenu()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("What is the name of your Pet?");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             string nameInput = Console.ReadLine();
             return nameInput;
         }
@@ -129,13 +149,17 @@
             do
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("What is the species of your new Pet?");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("1. Wolf");
                 Console.WriteLine("2. Fox");
                 Console.WriteLine("3. Red Panda");
                 Console.WriteLine("4. Dragon");
                 Console.WriteLine("5. Rabbit\n");
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Enter a line number: ");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 speciesSelection = Convert.ToInt32(Console.ReadLine());
             }
             while (speciesSelection < 1 || speciesSelection > 5);
