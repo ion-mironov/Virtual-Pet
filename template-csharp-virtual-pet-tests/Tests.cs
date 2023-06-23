@@ -9,7 +9,7 @@ namespace virtual_pet_tests
         [SetUp]
         public void SetUp()
         {
-            testPet = new Pet();
+            testPet = new Pet(string.Empty, string.Empty, 60, 60, 60);
         }
 
         [Test]
@@ -25,33 +25,33 @@ namespace virtual_pet_tests
         [Test]
         public void Pet_Should_Have_Name()
         {
-            // testPet.Name = "Pet Name";
-            // Assert.AreEqual("Pet Name", testPet.Name);
+            testPet.PetName = "Pet Name";
+            Assert.AreEqual("Pet Name", testPet.PetName);
         }
 
         [Test]
         public void Pet_Should_Have_Species()
         {
-            // testPet.Species = "Pet Species";
-            // Assert.AreEqual("Pet Species", testPet.Species);
+           testPet.PetSpecies = "Pet Species";
+           Assert.AreEqual("Pet Species", testPet.PetSpecies);
         }
 
         [Test]
         public void Constructor_Should_Return_Initial_Hunger_Level_Of_60()
         {
-            // Assert.AreEqual(60, testPet.Hunger);
+            // Assert.AreEqual(60, testPet.PetHunger);
         }
 
         [Test]
         public void Constructor_Should_Return_Initial_Boredom_Level_Of_60()
         {
-            // Assert.AreEqual(60, testPet.Boredom);
+            // Assert.AreEqual(60, testPet.PetBoredom);
         }
 
         [Test]
         public void Constructor_Should_Return_Initial_Health_Level_Of_60()
         {
-            // Assert.AreEqual(60, testPet.Health);
+            // Assert.AreEqual(60, testPet.PetHealth);
         }
 
         [Test]
